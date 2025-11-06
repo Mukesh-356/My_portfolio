@@ -186,9 +186,9 @@ const Home = () => {
             {/* Animated Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-700">
               {[
-                { number: "50+", label: "Projects" },
+                { number: "10+", label: "Projects" },
                 { number: "5+", label: "Years Experience" },
-                { number: "30+", label: "Clients" }
+                { number: "3+", label: "Clients" }
               ].map((stat, index) => (
                 <div key={index} className="text-center group">
                   <div className="text-3xl font-bold text-cyan-400 group-hover:glow-text transition-all duration-300">
@@ -196,7 +196,7 @@ const Home = () => {
                   </div>
                   <div className="text-gray-400 group-hover:text-cyan-300 transition-colors duration-300">
                     {stat.label}
-                  </div>
+                  </div> 
                 </div>
               ))}
             </div>
