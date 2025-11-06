@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
-
+import AudioPlayer from './components/AudioPlayer';
 function App() {
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
@@ -27,9 +27,11 @@ function App() {
     <div className="App">
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
       <Home />
+      
       <Projects />
       <Experience />
       <Contact />
+      <AudioPlayer />
     </div>
   );
 }
