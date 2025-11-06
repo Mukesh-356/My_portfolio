@@ -12,7 +12,8 @@ const Home = () => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
 
   const titles = [
-    "Full Stack Developer",
+    "Software Developer",
+    "Wedsite Developer",
     "React Specialist", 
     "Hands On Expert in development",
     ""

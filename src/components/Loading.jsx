@@ -60,7 +60,7 @@ const Loading = ({ setLoading }) => {
           Mukesh A
         </h1>
         <div className="typewriter text-cyan-300 text-lg">
-           Full Stack Developer
+           Software Developer
         </div>
       </div>
     </div>
