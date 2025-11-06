@@ -28,7 +28,7 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Portfolio Website",
+      title: "3D product Website",
       description: "Modern, responsive portfolio website with smooth animations and interactive elements built with React and GSAP",
       tech: ["React", "GSAP", "Tailwind CSS", "Framer Motion"],
       category: "Full Stack",
@@ -37,10 +37,10 @@ const Projects = () => {
       caseStudy: "#"
     },
     {
-      title: "AI Task Management",
+      title: "Hosipital  Management",
       description: "Intelligent project management with AI-powered insights and real-time collaboration features",
-      tech: ["Vue.js", "Firebase", "AI/ML", "PWA"],
-      category: "AI Integration",
+      tech: ["java script ", "mongo db ", "mern stack", "node js"],
+      category: "Full Stack",
       gradient: "from-green-500 to-cyan-500",
       liveDemo: "#",
       caseStudy: "#"
@@ -55,10 +55,10 @@ const Projects = () => {
       caseStudy: "#"
     },
     {
-      title: "Financial Analytics Dashboard",
-      description: "Real-time data visualization platform for financial institutions with predictive analytics",
-      tech: ["React", "D3.js", "Python", "PostgreSQL"],
-      category: "Data Science",
+      title: "WIFI Chat LAN Based ",
+      description: "Real-time chat application for LAN based devices with predictive analytics",
+      tech: ["React", "socket io", "IP address", "mongo db "],
+      category: "Full Stack",
       gradient: "from-purple-500 to-pink-500",
       liveDemo: "#",
       caseStudy: "#"

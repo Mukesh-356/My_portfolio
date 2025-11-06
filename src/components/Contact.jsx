@@ -97,21 +97,21 @@ const Contact = () => {
     {
       icon: "📱",
       title: "Phone",
-      value: "+91 98765 43210",
-      link: "tel:+919876543210"
+      value: "+91 9843142705 ",
+      link: "tel:+919843142705"
     },
     {
       icon: "📍",
       title: "Location",
-      value: "Chennai, India",
+      value: "Salem, Tamil Nadu",
       link: "#"
     }
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", url: "#", icon: "💼" },
-    { name: "GitHub", url: "#", icon: "🐙" },
-    { name: "Twitter", url: "#", icon: "🐦" }
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/mukesh-a-6ba8602a1/", icon: "💼" },
+    { name: "GitHub", url: "https://github.com/", icon: "🐙" },
+    { name: "Versal", url: "https://vercel.com/mukesh-356s-projects", icon: "🐦" }
   ];
 
   return (

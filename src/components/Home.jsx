@@ -156,12 +156,14 @@ const Home = () => {
             </div>
             
             <p 
-              ref={descriptionRef}
-              className="text-xl text-gray-300 leading-relaxed max-w-2xl"
-            >
-              I create <span className="text-cyan-400 font-semibold">exceptional digital experiences</span> with cutting-edge technologies. 
-              Specializing in <span className="text-purple-400 font-semibold">React, Node.js, and cloud solutions</span> for enterprise applications.
-            </p>
+  ref={descriptionRef}
+  className="text-xl text-gray-300 leading-relaxed max-w-2xl"
+>
+  I’m an <span className="text-cyan-400 font-semibold">innovative developer </span> 
+  focused on building <span className="text-purple-400 font-semibold">seamless, high-performance digital experiences</span> 
+   using React, Node.js, and cloud technologies.
+</p>
+
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-6">
               <button 
@@ -200,7 +202,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* 3D Profile Card */}
+          {/* 3D Profile Card with Image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative group">
               <div className="w-96 h-96 bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 rounded-3xl shadow-2xl transform group-hover:rotate-3 group-hover:scale-105 transition-all duration-500 overflow-hidden">
@@ -208,11 +210,13 @@ const Home = () => {
                   {/* Hologram Effect */}
                   <div className="absolute inset-0 hologram-effect"></div>
                   
-                  <div className="text-center relative z-10">
-                    <div className="w-32 h-32 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl neon-border">
-                      <span className="text-white font-bold text-4xl">MA</span>
-                    </div>
-                    <span className="text-cyan-300 font-semibold glow-text">Professional Profile</span>
+                  {/* Profile Image */}
+                  <div className="relative z-10 w-full h-full flex items-center justify-center">
+                    <img 
+                      src="/prof_mukesh.jpg" 
+                      alt="Mukesh A - Full Stack Developer"
+                      className="w-64 h-64 object-cover rounded-full border-4 border-cyan-400 shadow-2xl neon-border"
+                    />
                   </div>
                 </div>
               </div>
@@ -227,16 +231,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center space-y-4">
-            <span className="text-cyan-400 text-lg font-medium glow-text">Scroll to Explore</span>
-            <div className="w-8 h-14 border-2 border-cyan-400 rounded-full flex justify-center neon-border">
-              <div className="w-1 h-4 bg-cyan-400 rounded-full mt-3 animate-bounce glow-text"></div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );

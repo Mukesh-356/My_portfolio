@@ -58,28 +58,20 @@ const Experience = () => {
 
   const experiences = [
     {
-      period: "2022 - Present",
-      role: "Senior Full Stack Developer",
-      company: "TechCorp Solutions",
-      description: "Lead development of enterprise web applications using React, Node.js, and cloud technologies.",
-      achievements: ["Improved app performance by 40%", "Led team of 5 developers", "Implemented CI/CD pipelines"],
+      period: "2025 - Present",
+      role: "Software Developer",
+      company: "Yuga Yatra ",
+      description: "Developed web applications for various clients with modern technologies.",
+      achievements: [ "Reduced load times by 60%", "Implemented Word press and Fire Base"],
       tech: ["React", "Node.js", "AWS", "MongoDB"]
     },
     {
-      period: "2020 - 2022",
-      role: "Full Stack Developer",
-      company: "Digital Innovations Inc",
+      period: "2025 - 2025+",
+      role: "Software Developer",
+      company: "Muthayammal Engineering College ",
       description: "Developed web applications for various clients with modern technologies.",
-      achievements: ["Delivered 15+ projects", "Reduced load times by 60%", "Implemented agile methodologies"],
-      tech: ["Vue.js", "Firebase", "Python", "PostgreSQL"]
-    },
-    {
-      period: "2018 - 2020",
-      role: "Frontend Developer",
-      company: "WebCraft Studios",
-      description: "Built responsive websites and applications with JavaScript frameworks.",
-      achievements: ["Built 20+ websites", "Improved SEO by 50%", "Implemented accessibility standards"],
-      tech: ["JavaScript", "CSS3", "WordPress", "PHP"]
+      achievements: [ "Reduced load times by 60%", "Implemented socket method "],
+      tech: ["React", "Node.js", "socket io", "MongoDB"]
     }
   ];
 
@@ -88,8 +80,8 @@ const Experience = () => {
       category: "Frontend", 
       items: [
         { name: "React", level: 95 },
-        { name: "Vue.js", level: 85 },
-        { name: "TypeScript", level: 90 },
+        { name: "Vite", level: 85 },
+        { name: "JavaScript", level: 90 },
         { name: "Tailwind CSS", level: 95 }
       ] 
     },
@@ -97,18 +89,18 @@ const Experience = () => {
       category: "Backend", 
       items: [
         { name: "Node.js", level: 90 },
-        { name: "Python", level: 80 },
-        { name: "PostgreSQL", level: 85 },
-        { name: "MongoDB", level: 80 }
+        { name: "JavaScript", level: 80 },
+        { name: "MongoDB", level: 85 },
+        { name: "", level: 80 }
       ] 
     },
     { 
       category: "Tools & Cloud", 
       items: [
-        { name: "AWS", level: 75 },
-        { name: "Docker", level: 70 },
+        { name: "Versal", level: 75 },
+        { name: "Railway", level: 70 },
         { name: "Git", level: 95 },
-        { name: "Figma", level: 80 }
+        { name: "Render", level: 80 }
       ] 
     }
   ];
@@ -239,11 +231,11 @@ const Experience = () => {
               <div className="space-y-4">
                 <div className="group">
                   <h4 className="font-semibold text-white">Bachelor of Computer Science</h4>
-                  <p className="text-cyan-400">University of Technology</p>
-                  <p className="text-gray-400 text-sm">2014 - 2018</p>
+                  <p className="text-cyan-400">Muthayammal Engineering Collage </p>
+                  <p className="text-gray-400 text-sm">2023 - 2027</p>
                 </div>
                 <div className="group">
-                  <h4 className="font-semibold text-white">AWS Certified Developer</h4>
+                  <h4 className="font-semibold text-white">Microsoft Azure Certification</h4>
                   <p className="text-gray-400 text-sm">2021 - Present</p>
                 </div>
               </div>
