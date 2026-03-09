@@ -79,124 +79,115 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-black relative overflow-hidden">
+    <section id="projects" className="py-24 bg-transparent relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-blue-500/10 to-transparent"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
-      
-      <div ref={projectsRef} className="max-w-7xl mx-auto px-6 relative z-10">
-        
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-blue-900/10 to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-600 rounded-full filter blur-[100px] opacity-20 pointer-events-none"></div>
+
+      <div ref={projectsRef} className="max-w-6xl mx-auto px-4 relative z-10">
+
         {/* Animated Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-6xl lg:text-7xl font-black text-white mb-6">
-            Featured <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Projects</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+            Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base text-gray-400 max-w-xl mx-auto font-light">
             Crafting digital solutions that push the boundaries of innovation and user experience
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 perspective-1000">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="project-card group relative bg-gray-900/80 backdrop-blur-sm rounded-3xl border border-gray-700 overflow-hidden hover:border-blue-400 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:transform hover:-translate-y-2"
+              className="project-card group relative premium-card p-[1px] transform-style-3d hover:-translate-y-1 hover:rotate-x-1 transition-transform duration-500 hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
             >
-              {/* Gradient Header */}
-              <div className={`h-48 bg-gradient-to-r ${project.gradient} relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/30"></div>
-                <div className="absolute top-6 right-6">
-                  <span className="bg-black/70 text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-white/20">
-                    {project.category}
-                  </span>
-                </div>
-                <div className="absolute bottom-6 left-6">
-                  <div className="text-white">
-                    <div className="text-4xl font-bold mb-2">0{index + 1}</div>
-                    <span className="text-white/80 text-sm tracking-widest">PROJECT SHOWCASE</span>
-                  </div>
-                </div>
-                
-                {/* Floating elements */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/30">
-                    <span className="text-2xl font-bold text-white">🚀</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mb-6 leading-relaxed text-lg">
-                  {project.description}
-                </p>
-                
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {project.tech.map((tech, i) => (
-                    <span 
-                      key={i}
-                      className="bg-gray-800/80 text-blue-300 px-4 py-2 rounded-xl text-sm font-medium border border-gray-700 group-hover:border-blue-400 transition-all duration-300 backdrop-blur-sm"
-                    >
-                      {tech}
+              <div className="bg-[#0f0f0f] rounded-[1.4rem] h-full flex flex-col overflow-hidden relative z-10">
+                {/* Gradient Header */}
+                <div className={`h-40 bg-gradient-to-r ${project.gradient} relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-white/10 text-white px-3 py-1.5 rounded-full text-[10px] tracking-wider font-semibold border border-white/20 backdrop-blur-md">
+                      {project.category}
                     </span>
-                  ))}
+                  </div>
+                  <div className="absolute bottom-4 left-4">
+                    <div className="text-white">
+                      <div className="text-4xl font-black mb-1 opacity-90 tracking-tighter">0{index + 1}</div>
+                      <span className="text-white/80 text-[9px] tracking-[0.2em] font-bold uppercase">PROJECT SHOWCASE</span>
+                    </div>
+                  </div>
+
+                  {/* Floating elements */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center backdrop-blur-lg border border-white/20 shadow-[0_8px_20px_rgba(0,0,0,0.3)] group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                      <span className="text-2xl font-bold text-white">🚀</span>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex space-x-4 pt-6 border-t border-gray-700">
-                  <button 
-                    onClick={() => handleCaseStudy(project.caseStudy)}
-                    className="flex items-center space-x-3 text-blue-400 hover:text-blue-300 font-semibold transition-all duration-200 group/link px-4 py-2 rounded-lg hover:bg-blue-400/10"
-                  >
-                    <span className="text-lg">Case Study</span>
-                    <span className="transform group-hover/link:translate-x-2 transition-transform duration-200 text-xl">→</span>
-                  </button>
-                  <button 
-                    onClick={() => handleLiveDemo(project.liveDemo)}
-                    className="flex items-center space-x-3 text-gray-400 hover:text-white font-semibold transition-all duration-200 group/link px-4 py-2 rounded-lg hover:bg-white/5"
-                  >
-                    <span className="text-lg">Live Demo</span>
-                    <span className="transform group-hover/link:translate-x-1 translate-y-1 transition-transform duration-200 text-xl">↗</span>
-                  </button>
-                </div>
-              </div>
+                {/* Project Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-pink-400 transition-all duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-400 mb-6 leading-relaxed text-sm font-light">
+                      {project.description}
+                    </p>
 
-              {/* Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-              
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-border opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
-                <div className="absolute inset-0 rounded-3xl bg-black -m-0.5"></div>
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="bg-white/5 text-gray-300 px-4 py-1.5 rounded-lg text-sm font-medium border border-white/10 group-hover:border-white/30 group-hover:text-white transition-all duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex space-x-4 pt-6 mt-auto">
+                    <button
+                      onClick={() => handleCaseStudy(project.caseStudy)}
+                      className="flex-1 flex justify-center items-center space-x-2 text-white font-semibold transition-all duration-300 px-4 py-3 rounded-xl border border-white/10 hover:border-blue-500 hover:bg-blue-500/10 group/link"
+                    >
+                      <span>Case Study</span>
+                      <span className="transform group-hover/link:translate-x-1 transition-transform duration-300">→</span>
+                    </button>
+                    <button
+                      onClick={() => handleLiveDemo(project.liveDemo)}
+                      className="flex-1 flex justify-center items-center space-x-2 text-white font-semibold transition-all duration-300 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 group/link"
+                    >
+                      <span>Live Demo</span>
+                      <span className="transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300">↗</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Internal Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* View More */}
-        <div className="text-center mt-20">
+        <div className="text-center mt-24">
           <button className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-            <button className="relative bg-black border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black px-12 py-4 rounded-xl font-bold text-lg transition-all duration-300 group">
-              <span className="flex items-center space-x-2">
-                <span>Explore All Projects</span>
-                <span className="transform group-hover:translate-x-2 transition-transform duration-200">→</span>
-              </span>
-            </button>
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative bg-black px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 flex items-center space-x-3 border border-white/10">
+              <span className="text-white tracking-wide">Explore All Projects</span>
+              <span className="text-gray-400 group-hover:text-white transform group-hover:translate-x-2 transition-all duration-300">→</span>
+            </div>
           </button>
         </div>
       </div>
-
-      {/* Additional background elements */}
-      <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-400 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-20 w-3 h-3 bg-purple-400 rounded-full animate-pulse delay-1000"></div>
-      <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse delay-500"></div>
     </section>
   );
 };
 
-export default Projects;                                       
+export default Projects;

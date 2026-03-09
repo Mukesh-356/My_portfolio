@@ -1,173 +1,366 @@
 @import "tailwindcss";
 
-/* Modern gradient backgrounds */
+/* --- PREMIUM THEME FOUNDATION --- */
 body {
-  font-family: 'Inter', sans-serif;
-  background: #000000;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #030303;
+  /* Deep jet black */
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Advanced text animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-@keyframes glow {
-  0%, 100% { text-shadow: 0 0 20px #00ffff; }
-  50% { text-shadow: 0 0 30px #ff00ff, 0 0 40px #00ffff; }
+::-webkit-scrollbar-track {
+  background: #030303;
 }
 
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 10px;
 }
 
-@keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #00ffff; }
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* --- PREMIUM UTILITIES --- */
+.glass-panel {
+  background: rgba(15, 15, 15, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes particleFloat {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(20px, -20px) rotate(90deg); }
-  50% { transform: translate(0, -40px) rotate(180deg); }
-  75% { transform: translate(-20px, -20px) rotate(270deg); }
+.glass-pill {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-/* Modern utility classes */
-.floating {
-  animation: float 6s ease-in-out infinite;
+/* Animated Flowing Gradient Text */
+.text-gradient {
+  background: linear-gradient(to right,
+      #60a5fa,
+      /* blue-400 */
+      #a78bfa,
+      /* violet-400 */
+      #f472b6,
+      /* pink-400 */
+      #60a5fa);
+  background-size: 300% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient-flow 6s linear infinite;
 }
 
-.glow-text {
-  animation: glow 2s ease-in-out infinite alternate;
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
 }
 
-.typewriter {
+/* --- ADVANCED ANIMATIONS --- */
+
+/* Aurora Ambient Background */
+.aurora-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow: hidden;
-  border-right: 3px solid;
-  white-space: nowrap;
-  animation: typewriter 3s steps(40) 1s both, blink 1s infinite;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.gradient-bg {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+.aurora-bg::before,
+.aurora-bg::after {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 60vh;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: aurora-move 20s ease-in-out infinite alternate;
 }
 
-.cyber-grid {
-  background-image: 
-    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
+.aurora-bg::before {
+  background: #60a5fa;
+  top: -20%;
+  left: -10%;
 }
 
-.neon-border {
-  border: 2px solid #00ffff;
-  box-shadow: 0 0 10px #00ffff, inset 0 0 10px #00ffff;
+.aurora-bg::after {
+  background: #a78bfa;
+  bottom: -20%;
+  right: -10%;
+  animation-delay: -10s;
 }
 
-.hologram-effect {
-  background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 255, 0.1) 50%, transparent 70%);
-  background-size: 200% 200%;
-  animation: hologram 3s ease-in-out infinite;
+@keyframes aurora-move {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(10%, 15%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-10%, -10%) scale(0.9);
+  }
 }
 
-@keyframes hologram {
-  0% { background-position: -100% -100%; }
-  100% { background-position: 200% 200%; }
+/* --- PREMIUM CARDS (Animated Borders & 3D) --- */
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
 }
 
+.premium-card {
+  position: relative;
+  border-radius: 1.5rem;
+  background: #0a0a0a;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-@keyframes shine {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  
-  .animate-shine {
-    animation: shine 2s infinite;
-  }
-  
-  .neon-border {
-    box-shadow: 0 0 10px theme('colors.cyan.400'),
-                0 0 20px theme('colors.cyan.400'),
-                0 0 40px theme('colors.cyan.400'),
-                inset 0 0 10px theme('colors.cyan.400');
-  }
-  
-  .glow-text {
-    text-shadow: 0 0 10px currentColor;
-  }
+.premium-card::before,
+.premium-card::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 1.6rem;
+  background: conic-gradient(from var(--border-angle),
+      transparent 20%,
+      rgba(255, 255, 255, 0.1) 40%,
+      #a78bfa 50%,
+      #f472b6 60%,
+      transparent 80%);
+  z-index: -1;
+  animation: rotate-border 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
 
-  /* Add to your global CSS */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+.premium-card::after {
+  filter: blur(15px);
+  opacity: 0;
+}
+
+.premium-card:hover::before {
+  opacity: 1;
+}
+
+.premium-card:hover::after {
+  opacity: 0.6;
+}
+
+@keyframes rotate-border {
+  to {
+    --border-angle: 1turn;
   }
-  
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  @keyframes shine {
-    0% { transform: translateX(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) rotate(45deg); }
-  }
-  
-  .animate-shine {
-    animation: shine 2s infinite;
-  }
-  
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #1f2937;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
-    border-radius: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Perspective Context */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Floating Elements */
+.float-element {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+@keyframes float-soft {
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
+  50% {
+    transform: translateY(-15px);
+  }
+}
 
-  /* Add these to your existing index.css */
-.floating {
-    animation: float 6s ease-in-out infinite;
+/* --- Solar System Orbit Animations --- */
+.solar-system {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center "Sun" Profile Image */
+.sun-profile {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  z-index: 20;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 50px rgba(96, 165, 250, 0.4), inset 0 0 20px rgba(167, 139, 250, 0.3);
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.sun-profile:hover {
+  box-shadow: 0 0 80px rgba(96, 165, 250, 0.6), inset 0 0 30px rgba(167, 139, 250, 0.5);
+  transform: scale(1.05);
+}
+
+/* Orbital Rings */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner Orbit (Fast) */
+.orbit-ring-1 {
+  width: 260px;
+  height: 260px;
+  animation: spin-orbit 15s linear infinite;
+  z-index: 15;
+}
+
+/* Middle Orbit (Medium) */
+.orbit-ring-2 {
+  width: 360px;
+  height: 360px;
+  animation: spin-orbit-reverse 25s linear infinite;
+  z-index: 10;
+}
+
+/* Outer Orbit (Slow) */
+.orbit-ring-3 {
+  width: 480px;
+  height: 480px;
+  animation: spin-orbit 35s linear infinite;
+  z-index: 5;
+}
+
+/* Planets (Icons) */
+.planet {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Counter-rotate planets to stay upright */
+.orbit-ring-1 .planet {
+  animation: spin-orbit-reverse 15s linear infinite;
+}
+
+.orbit-ring-2 .planet {
+  animation: spin-orbit 25s linear infinite;
+}
+
+.orbit-ring-3 .planet {
+  animation: spin-orbit-reverse 35s linear infinite;
+}
+
+.planet:hover {
+  transform: translateX(-50%) scale(1.2);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  z-index: 30;
+}
+
+.planet span {
+  font-weight: 800;
+  font-size: 11px;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+/* Multiple planets on the same ring */
+.planet.pos-2 {
+  top: auto;
+  bottom: -20px;
+}
+
+.planet.pos-3 {
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+}
+
+.planet.pos-4 {
+  top: 50%;
+  left: auto;
+  right: -20px;
+  transform: translateY(-50%);
+}
+
+/* Counter-rotations for side planets */
+.orbit-ring-2 .planet.pos-3,
+.orbit-ring-2 .planet.pos-4 {
+  animation: spin-orbit-reverse-side 25s linear infinite;
+}
+
+@keyframes spin-orbit {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(1deg); }
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+@keyframes spin-orbit-reverse {
+  0% {
+    transform: rotate(360deg);
   }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spin-orbit-reverse-side {
+  0% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+}

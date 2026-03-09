@@ -24,10 +24,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App relative bg-black text-white min-h-screen">
+      {/* Aurora Ambient Background Component can be placed globally or per section, putting here globally */}
+      <div className="aurora-bg"></div>
+
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
       <Home />
-      
+
       <Projects />
       <Experience />
       <Contact />

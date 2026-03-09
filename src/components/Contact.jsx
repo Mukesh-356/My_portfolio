@@ -16,7 +16,7 @@ const Contact = () => {
   // Your actual EmailJS credentials
   const EMAILJS_CONFIG = {
     SERVICE_ID: 'service_tpwhbj2',
-    TEMPLATE_ID: 'template_h783sli', 
+    TEMPLATE_ID: 'template_h783sli',
     PUBLIC_KEY: 'lxreuMfkRI5k5dRZA'
   };
 
@@ -64,11 +64,13 @@ const Contact = () => {
           message: formData.message,
           to_email: 'mukesh1152006@gmail.com'
         },
-        EMAILJS_CONFIG.PUBLIC_KEY
+        {
+          publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
+        }
       );
 
       console.log('✅ Email sent successfully:', result);
-      
+
       setSubmitStatus('success');
       // Reset form
       setFormData({
@@ -115,42 +117,43 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-black relative overflow-hidden">
+    <section id="contact" className="py-24 bg-transparent relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-cyan-500/10 to-transparent"></div>
-      
-      <div ref={contactRef} className="max-w-6xl mx-auto px-6 relative z-10">
-        
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-blue-900/10 to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-pink-600 rounded-full filter blur-[150px] opacity-10 pointer-events-none"></div>
+
+      <div ref={contactRef} className="max-w-6xl mx-auto px-4 relative z-10">
+
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-black text-white mb-6">
-            Let's <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent glow-text">Connect</span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+            Let's <span className="text-gradient drop-shadow-lg drop-shadow-pink-500/20">Connect</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base text-gray-400 max-w-xl mx-auto font-light">
             Ready to start your next project? Get in touch and I'll respond within 24 hours.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 perspective-1000">
+
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div className="contact-item">
-              <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
-              
+              <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-pink-400 transition-all duration-300">Get In Touch</h3>
+
               <div className="space-y-6">
                 {contactMethods.map((method, index) => (
                   <a
                     key={index}
                     href={method.link}
-                    className="contact-item flex items-center space-x-4 p-6 bg-gray-900 rounded-2xl border border-gray-800 hover:border-cyan-500 transition-all duration-300 group"
+                    className="contact-item flex items-center space-x-6 p-6 glass-panel rounded-2xl hover:bg-white/5 hover:border-white/30 transition-all duration-500 group transform-style-3d hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)]"
                   >
-                    <div className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-xl">{method.icon}</span>
+                    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-inner">
+                      <span className="text-2xl drop-shadow-md">{method.icon}</span>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">{method.title}</p>
-                      <p className="text-white font-semibold group-hover:text-cyan-400 transition-colors duration-300">
+                      <p className="text-gray-400 text-sm uppercase tracking-[0.15em] font-semibold mb-1">{method.title}</p>
+                      <p className="text-white text-lg font-medium group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-pink-400 transition-all duration-300">
                         {method.value}
                       </p>
                     </div>
@@ -160,17 +163,17 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="contact-item bg-gray-900 rounded-2xl border border-gray-800 p-6">
-              <h4 className="font-semibold text-white mb-4">Follow Me</h4>
+            <div className="contact-item glass-panel rounded-2xl p-8 transform-style-3d hover:-translate-y-1 transition-transform duration-500">
+              <h4 className="font-bold text-white text-xl mb-6">Follow Me</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
-                    className="flex-1 flex items-center justify-center space-x-2 border border-gray-700 hover:border-cyan-400 text-gray-300 hover:text-cyan-400 py-3 rounded-xl transition-all duration-300 group"
+                    className="flex-1 flex flex-col items-center justify-center gap-2 bg-[#0a0a0a] border border-white/10 hover:border-blue-500/50 hover:bg-white/5 text-gray-400 hover:text-white py-5 rounded-xl transition-all duration-300 group shadow-inner"
                   >
-                    <span>{social.icon}</span>
-                    <span className="font-medium">{social.name}</span>
+                    <span className="text-2xl group-hover:scale-125 group-hover:-translate-y-1 transition-all duration-300 drop-shadow-md">{social.icon}</span>
+                    <span className="font-semibold text-xs uppercase tracking-widest">{social.name}</span>
                   </a>
                 ))}
               </div>
@@ -178,112 +181,118 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="contact-item bg-gray-900 rounded-2xl border border-gray-800 p-8">
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="contact-item relative premium-card p-[1px] transform-style-3d hover:-translate-y-1 transition-transform duration-500">
+            <div className="bg-[#0f0f0f] rounded-[1.4rem] h-full flex flex-col relative z-10 p-10 shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
+              <h3 className="text-3xl font-bold text-white mb-8">Send a Message</h3>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-xs font-semibold text-gray-400 mb-2 uppercase tracking-[0.2em]">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-5 py-4 bg-[#050505] border border-white/10 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-white transition-all duration-300 shadow-inner"
+                      placeholder="Your Name"
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-semibold text-gray-400 mb-2 uppercase tracking-[0.2em]">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-5 py-4 bg-[#050505] border border-white/10 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-white transition-all duration-300 shadow-inner"
+                      placeholder="your.email@example.com"
+                      disabled={isSubmitting}
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Name *
+                  <label htmlFor="subject" className="block text-xs font-semibold text-gray-400 mb-2 uppercase tracking-[0.2em]">
+                    Subject *
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="subject"
+                    name="subject"
                     required
-                    value={formData.name}
+                    value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-cyan-500 text-white transition-colors duration-300"
-                    placeholder="Your Name"
+                    className="w-full px-5 py-4 bg-[#050505] border border-white/10 rounded-xl focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-white transition-all duration-300 shadow-inner"
+                    placeholder="Project Discussion"
                     disabled={isSubmitting}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email *
+                  <label htmlFor="message" className="block text-xs font-semibold text-gray-400 mb-2 uppercase tracking-[0.2em]">
+                    Message *
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
+                  <textarea
+                    id="message"
+                    name="message"
                     required
-                    value={formData.email}
+                    rows="5"
+                    value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-cyan-500 text-white transition-colors duration-300"
-                    placeholder="your.email@example.com"
+                    className="w-full px-5 py-4 bg-[#050505] border border-white/10 rounded-xl focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 text-white transition-all duration-300 resize-none shadow-inner"
+                    placeholder="Tell me about your project..."
                     disabled={isSubmitting}
-                  />
+                  ></textarea>
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-cyan-500 text-white transition-colors duration-300"
-                  placeholder="Project Discussion"
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows="6"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-cyan-500 text-white transition-colors duration-300 resize-none"
-                  placeholder="Tell me about your project..."
-                  disabled={isSubmitting}
-                ></textarea>
-              </div>
-
-              {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-500/20 border border-green-500 rounded-xl text-green-400 text-center">
-                  ✅ Message sent successfully! I'll get back to you soon.
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-500/20 border border-red-500 rounded-xl text-red-400 text-center">
-                  ❌ Failed to send message. Please try again or email me directly.
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-              >
-                {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Sending...
-                  </>
-                ) : (
-                  'Send Message'
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-green-500/10 border border-green-500/50 rounded-xl text-green-400 text-center font-medium backdrop-blur-sm">
+                    ✅ Message sent successfully! I'll get back to you soon.
+                  </div>
                 )}
-              </button>
 
-              <p className="text-gray-500 text-sm text-center">
-                Your message will be sent directly to my email inbox
-              </p>
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-center font-medium backdrop-blur-sm">
+                    ❌ Failed to send message. Please try again or email me directly.
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full relative group overflow-hidden rounded-xl font-bold text-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed mt-4 shadow-[0_0_40px_rgba(96,165,250,0.3)] hover:shadow-[0_0_60px_rgba(96,165,250,0.5)]"
+                >
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-pink-600 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative flex items-center justify-center py-4 px-6 text-white text-lg font-bold tracking-wide cursor-pointer">
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      'Send Message'
+                    )}
+                  </div>
+                </button>
+
+                <p className="text-gray-500 text-xs text-center font-medium tracking-wide uppercase mt-6">
+                  Your message will be sent directly to my email inbox
+                </p>
+              </div>
             </div>
           </form>
         </div>
