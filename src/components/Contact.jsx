@@ -61,12 +61,9 @@ const Contact = () => {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
-          message: formData.message,
-          to_email: 'mukesh1152006@gmail.com'
+          message: formData.message
         },
-        {
-          publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
-        }
+        EMAILJS_CONFIG.PUBLIC_KEY
       );
 
       console.log('✅ Email sent successfully:', result);
@@ -82,6 +79,9 @@ const Contact = () => {
 
     } catch (error) {
       console.error('❌ Email sending failed:', error);
+      if (error && error.text) {
+        console.error('EmailJS error details:', error.text);
+      }
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
